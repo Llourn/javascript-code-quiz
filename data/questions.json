@@ -3,15 +3,15 @@
     {
       "question": "Inside which HTML element do we put the JavaScript?",
       "options": [
-        "<js>",
-        "<javascript>",
-        "<scripting>",
-        "<script>"
+        "&lt;js&gt;",
+        "&lt;javascript&gt;",
+        "&lt;scripting&gt;",
+        "&lt;script&gt;"
       ],
       "answer": "3"
     },
     {
-      "question": "What is the correct JavaScript syntax to change the content of the HTML element below? \\n \\n <p id=\"demo\">This is a demonstration.</p>",
+      "question": "What is the correct JavaScript syntax to change the content of the HTML element below? <br><br> &lt;p id=\"demo\"&gt;This is a demonstration.&lt;/p&gt;",
       "options": [
         "#demo.innerHTML = \"Hello World!\";",
         "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
@@ -23,23 +23,23 @@
     {
       "question": "Where is the correct place to insert a JavaScript?",
       "options": [
-        "Both the <head> section and the <body> section are correct",
-        "The <body> section",
-        "The <head> section"
+        "Both the &lt;head&gt; section and the &lt;body&gt; section are correct",
+        "The &lt;body&gt; section",
+        "The &lt;head&gt; section"
       ],
       "answer": "0"
     },
     {
       "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
       "options": [
-        "<script name=\"xxx.js\">",
-        "<script href=\"xxx.js\">",
-        "<script src=\"xxx.js\">"
+        "&lt;script name=\"xxx.js\"&gt;",
+        "&lt;script href=\"xxx.js\"&gt;",
+        "&lt;script src=\"xxx.js\"&gt;"
       ],
       "answer": "2"
     },
     {
-      "question": "The external JavaScript file must contain the <script> tag.",
+      "question": "The external JavaScript file must contain the &lt;script&gt; tag.",
       "options": [
         "False",
         "True"
@@ -87,10 +87,10 @@
     {
       "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
       "options": [
-        "if (i <> 5)",
+        "if (i &lt;&gt; 5)",
         "if (i != 5)",
         "if i =! 5 then",
-        "if i <> 5"
+        "if i &lt;&gt; 5"
       ],
       "answer": "1"
     },
@@ -98,25 +98,25 @@
       "question": "How does a WHILE loop start?",
       "options": [
         "while i = 1 to 10",
-        "while (i <= 10; i++)",
-        "while (i <= 10)"
+        "while (i &lt;= 10; i++)",
+        "while (i &lt;= 10)"
       ],
       "answer": "2"
     },
     {
       "question": "How does a FOR loop start?",
       "options": [
-        "for (i = 0; i <= 5)",
-        "for (i = 0; i <= 5; i++)",
+        "for (i = 0; i &lt;= 5)",
+        "for (i = 0; i &lt;= 5; i++)",
         "for i = 1 to 5",
-        "for (i <= 5; i++)"
+        "for (i &lt;= 5; i++)"
       ],
       "answer": "1"
     },
     {
       "question": "How can you add a comment in a JavaScript?",
       "options": [
-        "<!--This is a comment-->  ",
+        "&lt;!--This is a comment--&gt;  ",
         "'This is a comment",
         "//This is a comment"
       ],
@@ -125,9 +125,9 @@
     {
       "question": "How to insert a comment that has more than one line?",
       "options": [
-        "/*This comment has\\nmore than one line*/",
-        "<!--This comment has\\nmore than one line-->",
-        "//This comment has\\nmore than one line //"
+        "/*This comment has<br>more than one line*/",
+        "&lt;!--This comment has<br>more than one line--&gt;",
+        "//This comment has<br>more than one line //"
       ],
       "answer": "0"
     },
@@ -216,7 +216,7 @@
       "answer": "0"
     },
     {
-      "question": "What will the following code return: Boolean(10 > 9)",
+      "question": "What will the following code return: Boolean(10 &gt; 9)",
       "options": [
         "NaN",
         "true",

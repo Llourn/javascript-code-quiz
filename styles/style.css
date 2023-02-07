@@ -1,0 +1,33 @@
+.question {
+  display: none;
+}
+
+.message {
+  visibility: hidden;
+}
+
+.message.error {
+  color: darkred;
+}
+
+.message.success {
+  color: darkgreen;
+}
+
+.fade-animation {
+  animation: fade 1.5s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
