@@ -10,7 +10,7 @@ WHEN I click the start button
   THEN a timer starts and I am presented with a question
 ✅ WHEN I answer a question
   THEN I am presented with another question
-WHEN I answer a question incorrectly
+✅ WHEN I answer a question incorrectly
   THEN time is subtracted from the clock
 WHEN all questions are answered or the timer reaches 0
   THEN the game is over
@@ -26,9 +26,6 @@ THEN the answers in a different order
 
 
 
-loop through the questions and generate all the elements needed for each question.
-render elements on page as needed.
-Add event listener to the parent and use data attributes to check correct answer.
 Algorithm for randomizing array order:
 const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -38,13 +35,16 @@ const shuffleArray = array => {
     array[j] = temp;
   }
 }
-I want the answers to have check boxes or radio buttons and a submit button to prevent accidental clicks.
 
 */
 
+const timerStartValue = 60;
+var timeLeft = timerStartValue;
+var timerInterval;
 var currentQuestion = 0;
 var quizQuestions;
 var introEl = document.querySelector("#introduction");
+var timerEl = document.querySelector("#timer");
 var questionEl = document.querySelector("#question");
 var questionTextEl = document.querySelector("#question-text");
 var optionsEl = document.querySelector("#options");
@@ -73,7 +73,18 @@ async function startQuiz() {
   var data = await response.json();
   console.log(data.questions);
   quizQuestions = data.questions;
+  startTimer();
   generateQuestion();
+}
+
+function startTimer() {
+  updateTimer();
+  timeLeft = timerStartValue;
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) gameOver();
+  }, 1000);
 }
 
 function generateQuestion() {
@@ -112,11 +123,34 @@ function checkAnswer() {
     generateQuestion();
   } else {
     console.log("Incorrect");
+    timePenalty(5);
     announce("❌ Incorrect", "error");
     currentQuestion++;
     resetQuestionArea();
     generateQuestion();
   }
+}
+
+function timePenalty(amountInSeconds) {
+  timeLeft -= amountInSeconds;
+  if (timeLeft - amountInSeconds < 0) {
+    timeLeft = 0;
+    gameOver();
+  } else {
+    timeLeft -= amountInSeconds;
+  }
+  updateTimer();
+}
+
+function updateTimer() {
+  timerEl.textContent = `Time remaining: ${timeLeft}s`;
+}
+
+function gameOver() {
+  // clear the question section
+  // display the results and game over message
+  // provide area to enter initials
+  // save initials and score and display on score board.
 }
 
 function announce(message, modifier) {
