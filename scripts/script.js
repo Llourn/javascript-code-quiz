@@ -20,6 +20,7 @@ const shuffleArray = array => {
 // flag used to assist with debugging.
 const debugMode = false;
 
+// Variables
 const timerStartValue = 60;
 var timeLeft = timerStartValue;
 var timerInterval;
@@ -29,6 +30,7 @@ var scoreSubmitEvent;
 var quizQuestions;
 var leaderboard;
 
+// HTML elemements
 var introEl = document.querySelector("#introduction");
 var timerEl = document.querySelector("#timer");
 var questionEl = document.querySelector("#question");
@@ -99,17 +101,17 @@ function startTimer() {
 function checkAnswer() {
   var checkedOption = optionsEl.querySelector('input[name="options"]:checked');
   if (checkedOption === null) {
-    announce(
+    announceResult(
       "🚫 No option selected, please select an option to continue.",
       "error"
     );
   } else {
     if (checkedOption.value === quizQuestions[currentQuestion].answer) {
       correctAnswers++;
-      announce("✔️ Correct", "success");
+      announceResult("✔️ Correct", "success");
     } else {
       timePenalty(5);
-      announce("❌ Incorrect", "error");
+      announceResult("❌ Incorrect", "error");
     }
 
     currentQuestion++;
@@ -284,7 +286,7 @@ function createLeaderboardEntry(firstCol, secondCol, thirdCol) {
   return entryEl;
 }
 
-function announce(message, modifier) {
+function announceResult(message, modifier) {
   messageEl.className = "message";
 
   if (modifier === "error") {

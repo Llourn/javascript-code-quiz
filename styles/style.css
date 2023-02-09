@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@500&display=swap");
 
+/* Variables */
 :root {
   --white: white;
   --gold: palegoldenrod;
@@ -11,6 +12,7 @@
   --lightgrey: lightgrey;
 }
 
+/* General setup for common elements */
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -82,8 +84,26 @@ label {
   width: 100%;
 }
 
+/* Layout styling */
+.container {
+  width: 75%;
+  margin: auto;
+  max-width: 555px;
+}
+
+/* Quiz intro styling */
+.introduction {
+  text-align: center;
+}
+
+/* Timer styling */
 .timer {
   text-align: end;
+}
+
+/* Questions and options styling */
+.question {
+  display: none;
 }
 
 .options {
@@ -97,7 +117,7 @@ label {
 }
 
 .options div {
-  border: 1px solid white;
+  border: 1px solid var(--white);
   display: flex;
   cursor: pointer;
 }
@@ -119,22 +139,10 @@ label {
   margin-right: 0.5rem;
 }
 
-.container {
-  width: 75%;
-  margin: auto;
-  max-width: 555px;
-}
-
-.introduction {
-  text-align: center;
-}
-
-.question {
-  display: none;
-}
-
+/* Answer result announcement styling */
 .message {
   visibility: hidden;
+  padding-top: 1rem;
 }
 
 .message.error {
@@ -163,19 +171,18 @@ label {
   }
 }
 
-.message {
-  padding-top: 1rem;
-}
-
+/* Results at the end of the quiz */
 .results input {
   margin-bottom: 1rem;
 }
 
+/* Leaderboard styling */
 .leaderboard {
   padding-top: 1rem;
 }
+
 .leaderboard > div {
-  border: 1px solid white;
+  border: 1px solid var(--white);
   padding-block: 0.25rem;
   display: flex;
   justify-content: space-between;
@@ -194,15 +201,18 @@ label {
   background-color: var(--green);
 }
 
+/* First column of the leaderboard entry */
 .leaderboard > div > span:nth-child(1) {
   width: 6ch;
 }
 
+/* Second column of the leaderboard entry */
 .leaderboard > div > span:nth-child(2) {
   width: 4ch;
   text-align: center;
 }
 
+/* Third column of the leaderboard entry */
 .leaderboard > div > span:nth-child(3) {
   width: 6ch;
   text-align: right;
