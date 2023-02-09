@@ -19,11 +19,13 @@ The live site can be viewed [here](https://llourn.github.io/javascript-code-quiz
 ## Installation
 
 In addition to downloading the repo, you will need to either host this somewhere or spin up a local web server to run this app. The easiest way to do that is to open the project in VSCode and run the `index.html` file using the `Live Server` extension.
+
 This is due to the use of `fetch` to retrieve the questions from a JSON file stored within the project.
 
 ## Credits
 
 Obtained the reset.css file from http://meyerweb.com/eric/tools/css/reset/
+
 Quiz questions from https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
 
 ## License
