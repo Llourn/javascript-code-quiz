@@ -37,6 +37,7 @@ var optionsEl = document.querySelector("#options");
 var messageEl = document.querySelector("#message");
 var resultsEl = document.querySelector("#results");
 var leaderboardEl = document.querySelector("#leaderboard");
+var showLeaderboardLink = document.querySelector("#show-leaderboard");
 
 // initialize app
 async function init() {
@@ -48,6 +49,10 @@ async function init() {
   // retrieve leaderboard entries
   leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
   if (leaderboard === null) leaderboard = [];
+
+  showLeaderboardLink.addEventListener("click", function (event) {
+    displayLeaderboard(false);
+  });
 
   document.querySelector("#start").addEventListener("click", function () {
     startQuiz();
@@ -64,6 +69,7 @@ init();
 
 // operational logic
 function startQuiz() {
+  showLeaderboardLink.classList.add("deactivated");
   resetQuiz();
   startTimer();
   generateQuestion();
@@ -236,7 +242,8 @@ function gameOver() {
   resultsEl.append(formEl);
 }
 
-function displayLeaderboard() {
+function displayLeaderboard(showLatest = true) {
+  showLeaderboardLink.classList.add("deactivated");
   // first create the header to the leaderboard.
   const headerEl = createLeaderboardEntry("NAME", "TIME", "SCORE");
   leaderboardEl.append(headerEl);
@@ -254,7 +261,7 @@ function displayLeaderboard() {
       thirdColumnText
     );
 
-    if (entry.latestEntry) entryEl.classList.add("latest-entry");
+    if (entry.latestEntry && showLatest) entryEl.classList.add("latest-entry");
     leaderboardEl.append(entryEl);
   }
 }

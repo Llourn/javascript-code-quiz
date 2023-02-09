@@ -7,6 +7,8 @@
   --lightgrey: lightgrey;
   --beige: beige;
   --green: palegreen;
+  --red: palevioletred;
+  --lightgrey: lightgrey;
 }
 
 body {
@@ -32,6 +34,19 @@ p {
 
 header {
   text-align: center;
+}
+
+a {
+  color: var(--red);
+  cursor: pointer;
+}
+
+a:hover:not(.deactivated) {
+  text-decoration: underline;
+}
+
+a.deactivated {
+  display: none;
 }
 
 button {
@@ -65,6 +80,10 @@ label {
   line-height: 1.5;
   font-size: 85%;
   width: 100%;
+}
+
+.timer {
+  text-align: end;
 }
 
 .options {
@@ -164,15 +183,15 @@ label {
 }
 
 .leaderboard > div:nth-child(odd) {
-  background-color: beige;
+  background-color: var(--beige);
 }
 
 .leaderboard > div:first-child {
-  background-color: palegoldenrod;
+  background-color: var(--gold);
 }
 
 .leaderboard > div.latest-entry {
-  background-color: palegreen;
+  background-color: var(--green);
 }
 
 .leaderboard > div > span:nth-child(1) {
@@ -185,6 +204,6 @@ label {
 }
 
 .leaderboard > div > span:nth-child(3) {
-  width: 4ch;
+  width: 6ch;
   text-align: right;
 }
