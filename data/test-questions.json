@@ -1,0 +1,50 @@
+{
+  "questions": [
+    {
+      "question": "Inside which HTML element do we put the JavaScript?",
+      "options": [
+        "&lt;js&gt;",
+        "&lt;javascript&gt;",
+        "&lt;scripting&gt;",
+        "&lt;script&gt;"
+      ],
+      "answer": "3"
+    },
+    {
+      "question": "What is the correct JavaScript syntax to change the content of the HTML element below? <br><br> &lt;p id=\"demo\"&gt;This is a demonstration.&lt;/p&gt;",
+      "options": [
+        "#demo.innerHTML = \"Hello World!\";",
+        "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
+        "document.getElement(\"p\").innerHTML = \"Hello World!\";",
+        "document.getElementByName(\"p\").innerHTML = \"Hello World!\";"
+      ],
+      "answer": "1"
+    },
+    {
+      "question": "Where is the correct place to insert a JavaScript?",
+      "options": [
+        "Both the &lt;head&gt; section and the &lt;body&gt; section are correct",
+        "The &lt;body&gt; section",
+        "The &lt;head&gt; section"
+      ],
+      "answer": "0"
+    },
+    {
+      "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
+      "options": [
+        "&lt;script name=\"xxx.js\"&gt;",
+        "&lt;script href=\"xxx.js\"&gt;",
+        "&lt;script src=\"xxx.js\"&gt;"
+      ],
+      "answer": "2"
+    },
+    {
+      "question": "The external JavaScript file must contain the &lt;script&gt; tag.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "answer": "0"
+    }
+  ]
+}

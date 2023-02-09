@@ -1,3 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@500&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* font-family: 'Roboto Mono', monospace; */
+}
+
+h1 {
+  font-size: 200%;
+  margin-block: 2rem;
+}
+h2 {
+  font-size: 150%;
+  margin-block: 1.5rem;
+}
+h3 {
+  font-size: 135%;
+  margin-block: 1rem;
+}
+
+p {
+  margin-block: 1rem;
+}
+
+header {
+  text-align: center;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 100%;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  font-size: 100%;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-right: 1rem;
+}
+
+label {
+  font-family: "Roboto Mono", monospace;
+  word-break: break-all;
+  line-height: 1.5;
+  font-size: 85%;
+  width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-block: 1rem;
+  margin-bottom: 1rem;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.options div {
+  border: 1px solid white;
+  display: flex;
+  cursor: pointer;
+}
+
+.options div * {
+  cursor: pointer;
+}
+
+.options div:hover {
+  border: 1px solid grey;
+}
+
+.options div:nth-child(odd) {
+  background-color: beige;
+}
+
+.options input[type="radio"] {
+  margin: 0;
+  margin-right: 0.5rem;
+}
+
+.container {
+  width: 75%;
+  margin: auto;
+}
+
+.introduction {
+  text-align: center;
+}
+
 .question {
   display: none;
 }
@@ -30,4 +129,26 @@
     opacity: 0;
     visibility: hidden;
   }
+}
+
+.message {
+  padding-top: 1rem;
+}
+
+.leaderboard {
+  padding-top: 1rem;
+}
+.leaderboard > div {
+  border: 1px solid white;
+  padding-block: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leaderboard > div:nth-child(odd) {
+  background-color: beige;
+}
+
+.leaderboard > div.latest-entry {
+  background-color: palegreen;
 }
