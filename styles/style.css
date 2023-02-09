@@ -136,6 +136,10 @@ label {
   padding-top: 1rem;
 }
 
+.results input {
+  margin-bottom: 1rem;
+}
+
 .leaderboard {
   padding-top: 1rem;
 }
