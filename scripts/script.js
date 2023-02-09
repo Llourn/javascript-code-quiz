@@ -14,6 +14,9 @@ const shuffleArray = array => {
   }
 }
 */
+
+// BUG: when you're the first one to record a score it doesn't show the leaderboard.
+
 // flag used to assist with debugging.
 const debugMode = false;
 
@@ -230,7 +233,7 @@ function displayLeaderboard() {
     return b.scoreInPercent - a.scoreInPercent;
   });
 
-  for (let i = 0; i < sortedLeaderboard.length - 1; i++) {
+  for (let i = 0; i < sortedLeaderboard.length; i++) {
     const entry = sortedLeaderboard[i];
     var entryEl = document.createElement("div");
 
