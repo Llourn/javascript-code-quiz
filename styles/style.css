@@ -91,6 +91,7 @@ label {
 .container {
   width: 75%;
   margin: auto;
+  max-width: 555px;
 }
 
 .introduction {
