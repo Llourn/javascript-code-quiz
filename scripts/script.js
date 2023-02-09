@@ -111,7 +111,7 @@ function checkAnswer() {
 
     if (currentQuestion < quizQuestions.length) {
       generateQuestion();
-    } else {
+    } else if (timeLeft > 0) {
       gameOver();
     }
   }
@@ -136,9 +136,17 @@ function updateAndSaveLeaderboard(event) {
   leaderboard.push({
     initials: event.target[0].value.toUpperCase(),
     scoreInPercent: scoreInPercent(),
+    timeRemaining: timeLeft,
     latestEntry: true,
   });
-  if (leaderboard.length > 10) leaderboard.shift();
+
+  leaderboard = leaderboard.sort((a, b) => {
+    return (
+      b.scoreInPercent - a.scoreInPercent || b.timeRemaining - a.timeRemaining
+    );
+  });
+
+  if (leaderboard.length > 10) leaderboard.pop();
   localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
 }
 
@@ -217,6 +225,7 @@ function gameOver() {
 
   var inputEl = document.createElement("input");
   inputEl.type = "text";
+  inputEl.maxLength = 3;
   inputEl.placeholder = "Enter your initials";
 
   var submitEl = document.createElement("button");
@@ -227,28 +236,45 @@ function gameOver() {
   resultsEl.append(formEl);
 }
 
-// Sorts leaderboard from highest to lowest score and displays it.
 function displayLeaderboard() {
-  var sortedLeaderboard = leaderboard.sort((a, b) => {
-    return b.scoreInPercent - a.scoreInPercent;
-  });
+  // first create the header to the leaderboard.
+  const headerEl = createLeaderboardEntry("NAME", "TIME", "SCORE");
+  leaderboardEl.append(headerEl);
 
-  for (let i = 0; i < sortedLeaderboard.length; i++) {
-    const entry = sortedLeaderboard[i];
-    var entryEl = document.createElement("div");
+  // create the leaderboard entries.
+  for (let i = 0; i < leaderboard.length; i++) {
+    const entry = leaderboard[i];
+    const firstColumnText = `${i + 1}. ${entry.initials}`;
+    const secondColumnText = `${entry.timeRemaining}s`;
+    const thirdColumnText = `${entry.scoreInPercent}%`;
+
+    const entryEl = createLeaderboardEntry(
+      firstColumnText,
+      secondColumnText,
+      thirdColumnText
+    );
 
     if (entry.latestEntry) entryEl.classList.add("latest-entry");
-
-    var initialSpanEl = document.createElement("span");
-    initialSpanEl.textContent = `${i + 1}. ${entry.initials}`;
-    entryEl.append(initialSpanEl);
-
-    var scoreSpanEl = document.createElement("span");
-    scoreSpanEl.textContent = `${entry.scoreInPercent}%`;
-    entryEl.append(scoreSpanEl);
-
     leaderboardEl.append(entryEl);
   }
+}
+
+function createLeaderboardEntry(firstCol, secondCol, thirdCol) {
+  var entryEl = document.createElement("div");
+
+  var firstColumnEl = document.createElement("span");
+  firstColumnEl.textContent = firstCol;
+  entryEl.append(firstColumnEl);
+
+  var secondColumnEl = document.createElement("span");
+  secondColumnEl.textContent = secondCol;
+  entryEl.append(secondColumnEl);
+
+  var thirdColumnEl = document.createElement("span");
+  thirdColumnEl.textContent = thirdCol;
+  entryEl.append(thirdColumnEl);
+
+  return entryEl;
 }
 
 function announce(message, modifier) {

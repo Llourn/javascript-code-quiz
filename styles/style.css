@@ -1,8 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@500&display=swap");
 
+:root {
+  --white: white;
+  --gold: palegoldenrod;
+  --grey: grey;
+  --lightgrey: lightgrey;
+  --beige: beige;
+  --green: palegreen;
+}
+
 body {
   font-family: "Roboto", sans-serif;
-  /* font-family: 'Roboto Mono', monospace; */
 }
 
 h1 {
@@ -33,8 +41,12 @@ button {
   padding-block: 0.5rem;
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid grey;
+  border: 1px solid var(--grey);
   cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--lightgrey);
 }
 
 input {
@@ -43,7 +55,7 @@ input {
   padding-inline: 1rem;
   padding-block: 0.5rem;
   border-radius: 5px;
-  border: 1px solid grey;
+  border: 1px solid var(--grey);
   margin-right: 1rem;
 }
 
@@ -61,8 +73,8 @@ label {
   gap: 1rem;
   padding-block: 1rem;
   margin-bottom: 1rem;
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
+  border-top: 1px solid var(--grey);
+  border-bottom: 1px solid var(--grey);
 }
 
 .options div {
@@ -76,7 +88,7 @@ label {
 }
 
 .options div:hover {
-  border: 1px solid grey;
+  border: 1px solid var(--grey);
 }
 
 .options div:nth-child(odd) {
@@ -148,12 +160,31 @@ label {
   padding-block: 0.25rem;
   display: flex;
   justify-content: space-between;
+  padding-inline: 1rem;
 }
 
 .leaderboard > div:nth-child(odd) {
   background-color: beige;
 }
 
+.leaderboard > div:first-child {
+  background-color: palegoldenrod;
+}
+
 .leaderboard > div.latest-entry {
   background-color: palegreen;
+}
+
+.leaderboard > div > span:nth-child(1) {
+  width: 6ch;
+}
+
+.leaderboard > div > span:nth-child(2) {
+  width: 4ch;
+  text-align: center;
+}
+
+.leaderboard > div > span:nth-child(3) {
+  width: 4ch;
+  text-align: right;
 }
